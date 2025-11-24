@@ -558,35 +558,35 @@ It modifies the original array (unlink slice() which returns a new one)
   // else if statement
   // * Used when you need check multiple conditions.
 
-  let score = 75;
-  if(score>= 90){
-    console.log("A");
-  } else if(score >= 70){
-    console.log("B");
-  } else if(score >= 50){
-    console.log("C");
-  } else{
-    console.log("Fail");
-  }
+  // let score = 75;
+  // if(score>= 90){
+  //   console.log("A");
+  // } else if(score >= 70){
+  //   console.log("B");
+  // } else if(score >= 50){
+  //   console.log("C");
+  // } else{
+  //   console.log("Fail");
+  // }
 
   // ** Switch Statement
   // Used when you are checking one value against many cases.
   // Cleaner than many `else if` staement.
 
-  let day = 3;
-  switch(day){
-    case 1:
-      console.log("Monday");
-      break;
-    case 2:
-      console.log("Tuesday");
-      break;
-    case 3: 
-      console.log("Wednesday");
-      break;
-    default:
-      console.log("Invalid day");
-  }
+  // let day = 3;
+  // switch(day){
+  //   case 1:
+  //     console.log("Monday");
+  //     break;
+  //   case 2:
+  //     console.log("Tuesday");
+  //     break;
+  //   case 3: 
+  //     console.log("Wednesday");
+  //     break;
+  //   default:
+  //     console.log("Invalid day");
+  // }
 
   // * Ternary Operator `? :`.
   // Short form and  `if...else`
@@ -614,13 +614,11 @@ It modifies the original array (unlink slice() which returns a new one)
 
 
   // ** 🧱 Basic function structure.
-  /*
-       ****************
-       function greet(){
-       console.log("Hello!");
-       }
-       ****************
-  */
+
+  //      function greet(name){
+  //      console.log("Hello!" + " " + name);
+  //      }
+  //  greet("Tahuzze");
 
 
 // * `function` -> Keyword.
@@ -649,6 +647,24 @@ It modifies the original array (unlink slice() which returns a new one)
 
 */
 
+// ⭐ Return statement 
+// A function can return a value.
+
+/*
+    **************************
+    function add(){
+        return a + b;
+    }
+    console.log(add(5, 3)); // 8
+    **************************
+    Once return runs, the function stops execution.
+    */
+
+    // function returnName(){
+    //   return `I'm going to the top`
+    // }
+    // console.log(returnName)
+
 
 //  ⭐ Default Parameters
 /*
@@ -660,5 +676,150 @@ It modifies the original array (unlink slice() which returns a new one)
    greet(); // Hello Guests
    greet("Sam"); // Hello sam
    *************************
-   
+
 */
+
+// ** Types of Functions in Javascript
+
+// * Function Declaration
+
+// function functionName(parameters){
+//         return Value;
+// }
+
+// Function Expressions
+// A function stored in a variable
+// const greet = function(){
+//         console.log("Hi");
+// }
+// greet();
+
+// const multiply = function(a, b){
+//         return a * b;
+// }
+// console.log(multiply(5, 3)); // 15
+
+// * Arrow Functions(ES6+)
+
+// const functionName = (parameters) => {
+//         // function body.
+//         return Value;
+// };
+
+// single parameter (parenthesis optional)
+// const square = x => x * x;
+
+// No parameters
+// const sayHello = () => "Hello";
+
+// Implicit return
+// const add = (a, b) => a+b;
+
+// --- CALLING THEM ---
+// console.log(square(5));
+// console.log(sayHello());
+
+// console.log(add(10, 20));
+
+// Using Math.pow()
+// let result2 = Math.pow(5, 2);
+// console.log(result2); // 25
+
+// Immediately Invoked FUnction Expressions (IIFE) a.k.a Anonymous function 
+// (function(){
+
+// })();
+
+// or with arrow function
+// (() => {
+        // code  here
+// });
+
+// ** Examples
+// (function(){
+//         const add = (a, b) => a + b;
+//         const result = add(5, 7);
+//         console.log("The sum is : ", result);
+// })();
+
+// (() => {
+//         const square = x => x * x;
+//         const value = square(6);
+//         console.log("The square is:", value);
+// })();
+
+
+// *** Remove Duplicates from Array:
+
+// Write a function that takes an array with duplicate elements and returns a new array containing only the unique elements.
+
+// Example: [1, 2, 2, 3, 4, 4, 5] should return [1, 2, 3, 4, 5].
+
+// *** ✅ SOLUTION
+// function removeDuplicates(arr){
+//   return [...new Set(arr)];
+// }
+// console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+
+
+
+
+// QUESTION:
+// Write a function redundant that takes in a string str and returns a function that returns str.
+
+// Examples
+// const f1 = redundant("apple")
+// f1() ➞ "apple"
+
+// const f2 = redundant("pear")
+// f2() ➞ "pear"
+
+// const f3 = redundant("")
+// f3() ➞ ""
+// Notes
+// Your function should return a function, not a string.
+
+// SOLUTION:
+function redundant(str){
+  return function(){
+    return str;
+  }
+}
+const f1 = redundant("apple");
+console.log(f1());
+
+function redundant(str){
+  return function(){
+    return str;
+  }
+}
+const f2 = redundant("pear");
+
+console.log(f2());
+function redundant(str){
+  return function(){
+    return str;
+  }
+}
+const f3 = redundant(" ");
+console.log(f3());
+
+
+// QUESTION:
+
+// Create a function that takes a number as an argument, increments the number by +1 and returns the result.
+
+function addition(num){
+  return num + 1;
+}
+console.log(addition(0));
+
+function addition(num){
+  return num + 1;
+}
+console.log(addition(9));
+
+function addition(num){
+  return num + 1;
+}
+console.log(addition(-5));
