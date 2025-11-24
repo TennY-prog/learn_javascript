@@ -780,46 +780,99 @@ It modifies the original array (unlink slice() which returns a new one)
 // Your function should return a function, not a string.
 
 // SOLUTION:
-function redundant(str){
-  return function(){
-    return str;
-  }
-}
-const f1 = redundant("apple");
-console.log(f1());
+// function redundant(str){
+//   return function(){
+//     return str;
+//   }
+// }
+// const f1 = redundant("apple");
+// console.log(f1());
 
-function redundant(str){
-  return function(){
-    return str;
-  }
-}
-const f2 = redundant("pear");
+// function redundant(str){
+//   return function(){
+//     return str;
+//   }
+// }
+// const f2 = redundant("pear");
 
-console.log(f2());
-function redundant(str){
-  return function(){
-    return str;
-  }
-}
-const f3 = redundant(" ");
-console.log(f3());
+// console.log(f2());
+// function redundant(str){
+//   return function(){
+//     return str;
+//   }
+// }
+// const f3 = redundant(" ");
+// console.log(f3());
 
 
 // QUESTION:
 
 // Create a function that takes a number as an argument, increments the number by +1 and returns the result.
 
-function addition(num){
-  return num + 1;
-}
-console.log(addition(0));
+// function addition(num){
+//   return num + 1;
+// }
+// console.log(addition(0));
 
-function addition(num){
-  return num + 1;
-}
-console.log(addition(9));
+// function addition(num){
+//   return num + 1;
+// }
+// console.log(addition(9));
 
-function addition(num){
-  return num + 1;
+// function addition(num){
+//   return num + 1;
+// }
+// console.log(addition(-5));
+
+
+// *** CREATING OBJECT
+// const person = {
+//    name: "john",
+//     age: 30,
+
+//     //* Method 
+//     greet: function(){
+//         return `Hello, my name is ${this.name}`;
+//     }
+
+// }
+// console.log(person.name);
+// console.log(person.greet());
+
+
+// ****** B4 ES6
+// By convention, constructor functions are named starting with an uppercase letter. Its purpose is to initialize new person objects.
+function person(name, age){
+
+// the `this` keyword inside the constructor refers to that newly created Object.
+  
+  this.name = name;
+  this.age = age;
+
+  this.greet = function(){
+    return `Hello, my name is ${this.name}, and i'm ${this.age} years old.`;
+  }
 }
-console.log(addition(-5));
+
+// CREATING INSTANCE
+const person1 = new person(`John`, 30);
+const person2 = new person(`Jane`, 25);
+
+console.log(person1.greet());
+console.log(person2.greet());
+
+
+// **** ARRAYS PROPERTIES
+function liberty(name, books){
+  this.name = name;
+  this.books = books || [];
+
+  this.addBook = function(book){
+    this.books.push(book);
+  }
+}
+
+const lib = new liberty('City Library', ["Math", "English"]);
+lib.addBook("Physics");
+
+console.log(lib.books);
