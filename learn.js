@@ -842,37 +842,77 @@ It modifies the original array (unlink slice() which returns a new one)
 
 // ****** B4 ES6
 // By convention, constructor functions are named starting with an uppercase letter. Its purpose is to initialize new person objects.
-function person(name, age){
+// function person(name, age){
 
 // the `this` keyword inside the constructor refers to that newly created Object.
   
-  this.name = name;
-  this.age = age;
+//   this.name = name;
+//   this.age = age;
 
-  this.greet = function(){
-    return `Hello, my name is ${this.name}, and i'm ${this.age} years old.`;
-  }
-}
+//   this.greet = function(){
+//     return `Hello, my name is ${this.name}, and i'm ${this.age} years old.`;
+//   }
+// }
 
 // CREATING INSTANCE
-const person1 = new person(`John`, 30);
-const person2 = new person(`Jane`, 25);
+// const person1 = new person(`John`, 30);
+// const person2 = new person(`Jane`, 25);
 
-console.log(person1.greet());
-console.log(person2.greet());
+// console.log(person1.greet());
+// console.log(person2.greet());
 
 
 // **** ARRAYS PROPERTIES
-function liberty(name, books){
-  this.name = name;
-  this.books = books || [];
+// function liberty(name, books){
+//   this.name = name;
+//   this.books = books || [];
 
-  this.addBook = function(book){
-    this.books.push(book);
-  }
+//   this.addBook = function(book){
+//     this.books.push(book);
+//   }
+// }
+
+// const lib = new liberty('City Library', ["Math", "English"]);
+// lib.addBook("Physics");
+
+// console.log(lib.books);
+
+ 
+// **** OBJECT-ORIENTED PROGRAMMING (OOP) IN JAVASCRIPT
+/*
+   Object-oriented Programming is a programming paradigm that organizes code around objects rather than functions and procedures. Javascript supports OOP through prototype-based inheritance (rather than class-based inheritance found in language like Java or C++), though ES6 introduced class syntax that provides a more familiar structure.
+*/
+
+
+//* ES6 classes 
+
+// Class declaration
+class Person{
+  // The `constructor` method
+  // The `constructor` is a special function that runs automatically when you create an object
+    constructor(name, age){
+        this.name = name;
+        this.age =age;
+    }
+
+    // method
+    greet(){
+        return `Hello, my name is ${this.name}`;
+    }
+
+    // Getter
+    get birthYear(){
+      return new Date().getFullYear() - this.age;
+    }
+
+    // Setter
+    set birthYear(year){
+      this.age = new Date().getFullYear() - year;
+    }
 }
 
-const lib = new liberty('City Library', ["Math", "English"]);
-lib.addBook("Physics");
-
-console.log(lib.books);
+const person = new Person("Trevv", 30);
+console.log(person.greet());
+person.birthYear = 2000;
+console.log("New Age:", person.age);
+console.log(person.birthYear);
